@@ -3,6 +3,10 @@ Name|Type|Labels|Help
 kgateway_controller_reconcile_duration_seconds|histogram|controller, name, namespace|Reconcile duration for controller
 kgateway_controller_reconciliations_running|gauge|controller, name, namespace|Number of reconciliations currently running
 kgateway_controller_reconciliations_total|counter|controller, name, namespace, result|Total number of controller reconciliations
+kgateway_ec2_discovery_endpoints_active|gauge|namespace, name|Current number of active Envoy endpoints discovered for an EC2 Backend
+kgateway_ec2_discovery_error_state|gauge|namespace, name|Whether the most recent EC2 discovery poll for a Backend failed (1) or succeeded (0)
+kgateway_ec2_discovery_poll_duration_seconds|histogram|namespace, name, result|Duration of EC2 endpoint discovery polls per Backend
+kgateway_ec2_discovery_poll_total|counter|namespace, name, result, reason|Total number of EC2 endpoint discovery refresh attempts per Backend
 kgateway_envoy_xds_rejects_active|gauge|gateway_namespace, gateway_name, type_url|Number of xDS responses currently rejected by envoy proxy
 kgateway_envoy_xds_rejects_total|counter|gateway_namespace, gateway_name, type_url|Total number of xDS responses rejected by envoy proxy
 kgateway_resources_managed|gauge|namespace, parent, resource|Current number of resources managed
@@ -28,6 +32,7 @@ kgateway_validation_valid_total|counter|caller|Total number of successful Envoy 
 kgateway_xds_auth_rq_failure_total|counter||Total number of failed xDS auth requests
 kgateway_xds_auth_rq_success_total|counter||Total number of successful xDS auth requests
 kgateway_xds_auth_rq_total|counter||Total number of xDS auth requests
+kgateway_xds_snapshot_deferred_clients|gauge|gateway, namespace|Connected xDS clients whose snapshot is currently withheld because per-client inputs are not ready
 kgateway_xds_snapshot_resources|gauge|gateway, namespace, resource|Current number of resources in XDS snapshot
 kgateway_xds_snapshot_sync_duration_seconds|histogram|gateway, namespace|Duration of time for a gateway resource update to be synced in an XDS snapshot
 kgateway_xds_snapshot_syncs_total|counter|gateway, namespace|Total number of XDS snapshot syncs
